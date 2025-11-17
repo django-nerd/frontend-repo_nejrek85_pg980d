@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 export default function RainAssembler() {
   const { scrollYProgress } = useScroll()
   const join = useTransform(scrollYProgress, [0.8, 0.95], [0, 1])
+  const scale = useTransform(join, [0, 1], [0.9, 1.05])
 
   const drops = useMemo(() => {
     const count = 120
@@ -36,7 +37,7 @@ export default function RainAssembler() {
           {/* Composite image target */}
           <motion.div
             className="pointer-events-none absolute bottom-8 left-1/2 grid h-28 w-28 -translate-x-1/2 place-items-center rounded-2xl border border-white/20 bg-white/10"
-            style={{ opacity: join, scale: join.to([0, 1], [0.9, 1.05]) }}
+            style={{ opacity: join, scale }}
           >
             <motion.div
               className="h-10 w-10 rounded-md"

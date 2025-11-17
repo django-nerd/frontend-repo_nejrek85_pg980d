@@ -7,6 +7,10 @@ export default function ConstellationMerge() {
   const { scrollYProgress } = useScroll()
   const converge = useTransform(scrollYProgress, [0.55, 0.75], [0, 1])
 
+  // Derivatives from converge MotionValue
+  const scale = useTransform(converge, [0, 1], [0.6, 1.1])
+  const blur = useTransform(converge, [0, 1], ['blur(10px)', 'blur(0px)'])
+
   const points = useMemo(() => generatePoints(36), [])
 
   return (
@@ -56,8 +60,8 @@ export default function ConstellationMerge() {
           <motion.div
             className="pointer-events-none absolute left-1/2 top-1/2 grid h-28 w-28 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl"
             style={{
-              scale: converge.to([0, 1], [0.6, 1.1]),
-              filter: converge.to([0, 1], ['blur(10px)', 'blur(0px)']),
+              scale,
+              filter: blur,
               opacity: converge,
               mixBlendMode: 'screen',
               background:

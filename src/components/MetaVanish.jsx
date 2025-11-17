@@ -9,6 +9,7 @@ export default function MetaVanish() {
   const yExit = useTransform(scrollYProgress, [0.25, 0.45], [0, -400])
   const blur = useTransform(scrollYProgress, [0.25, 0.45], [0, 12])
   const opacity = useTransform(scrollYProgress, [0.25, 0.45], [1, 0])
+  const filterBlur = useTransform(blur, (b) => `blur(${b}px)`) // replace blur.to(...) with derived transform
 
   useEffect(() => {
     // add a class to body so global styles can react
@@ -29,7 +30,7 @@ export default function MetaVanish() {
     <section id="meta" className="relative py-40">
       <div className="mx-auto max-w-6xl px-4">
         <motion.div
-          style={{ rotateX: tilt, y: yExit, filter: blur.to((b) => `blur(${b}px)`), opacity }}
+          style={{ rotateX: tilt, y: yExit, filter: filterBlur, opacity }}
           className="rounded-3xl border border-white/15 bg-white/50 p-14 text-center shadow-2xl backdrop-blur dark:bg-zinc-900/50"
         >
           <h3 className="text-3xl font-extrabold">The Meta Layer</h3>

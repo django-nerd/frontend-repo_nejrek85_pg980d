@@ -13,28 +13,48 @@ import WarpRings from './components/WarpRings'
 import CursorComet from './components/CursorComet'
 import Ribbon from './components/Ribbon'
 import Magnetic from './components/Magnetic'
+import ChaosEngine from './components/ChaosEngine'
+import HyperspaceTunnel from './components/HyperspaceTunnel'
+import ChaosScroller from './components/ChaosScroller'
 
 function Page() {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-100 text-zinc-900 dark:from-zinc-950 dark:to-zinc-900 dark:text-white">
+      {/* Global chaos toggles */}
+      <ChaosScroller />
+
+      {/* Foreground comet that tracks cursor */}
       <CursorComet />
+
+      {/* Chaos engine and tunnel sit under UI but above background */}
+      <ChaosEngine />
+      <HyperspaceTunnel />
+
+      {/* Background systems */}
       <ScrollProgress />
       <Starfield />
       <WarpRings />
       <ParallaxLayers />
+
       <div className="relative z-10">
         <Magnetic>
           <Navbar />
         </Magnetic>
+
         <div className="relative">
-          <Ribbon height={140} opacity={0.35} />
+          <Ribbon height={160} opacity={0.45} />
           <Hero />
         </div>
-        <Ribbon height={140} opacity={0.25} />
+
+        <Ribbon height={160} opacity={0.35} />
         <Services />
-        <Ribbon height={140} opacity={0.2} />
+
+        <Ribbon height={160} opacity={0.3} />
         <Work />
+
+        <Ribbon height={160} opacity={0.28} />
         <Testimonials />
+
         <section className="relative py-24">
           <div className="mx-auto max-w-5xl px-4">
             <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/60 p-10 text-center shadow-2xl backdrop-blur dark:border-white/10 dark:bg-zinc-900/60">
@@ -63,6 +83,7 @@ function Page() {
             </div>
           </div>
         </section>
+
         <footer className="relative border-t border-zinc-200/70 py-10 dark:border-zinc-800">
           <div className="mx-auto max-w-7xl px-4">
             <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">

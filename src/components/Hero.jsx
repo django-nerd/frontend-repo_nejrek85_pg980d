@@ -1,6 +1,7 @@
 import React from 'react'
 import { useBrand } from './BrandProvider'
 import { motion } from 'framer-motion'
+import ChaosText from './ChaosText'
 
 export default function Hero() {
   const { brand } = useBrand()
@@ -16,9 +17,9 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
               className="text-4xl font-extrabold leading-tight text-zinc-900 dark:text-white sm:text-5xl md:text-6xl"
             >
-              High-Conversion Wix Websites
+              <ChaosText text="High-Conversion Wix Websites" />
               <span className="block text-transparent bg-clip-text" style={{ backgroundImage: `linear-gradient(90deg, ${brand.primary}, ${brand.secondary})` }}>
-                Built Lightning Fast
+                <ChaosText text="Built Lightning Fast" />
               </span>
             </motion.h1>
             <motion.p
@@ -50,18 +51,16 @@ export default function Hero() {
               </a>
             </motion.div>
             <div className="mt-8 flex gap-8 text-sm text-zinc-600 dark:text-zinc-400">
-              <div>
-                <p className="text-2xl font-bold text-zinc-900 dark:text-white">300+</p>
-                <p>Projects shipped</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-zinc-900 dark:text-white">4.9/5</p>
-                <p>Average rating</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-zinc-900 dark:text-white">48h</p>
-                <p>Avg. turnaround</p>
-              </div>
+              {[
+                { label: 'Projects shipped', value: '300+' },
+                { label: 'Average rating', value: '4.9/5' },
+                { label: 'Avg. turnaround', value: '48h' },
+              ].map((stat, i) => (
+                <motion.div key={i} animate={{ y: [0, -6, 3, 0] }} transition={{ duration: 6 + i, repeat: Infinity, ease: 'easeInOut' }}>
+                  <p className="text-2xl font-bold text-zinc-900 dark:text-white">{stat.value}</p>
+                  <p>{stat.label}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
           <div className="relative">

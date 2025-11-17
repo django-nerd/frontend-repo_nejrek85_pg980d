@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useBrand } from './BrandProvider'
+import MotionGrid from './MotionGrid'
 
 export default function Work() {
   const { brand } = useBrand()
@@ -11,6 +12,10 @@ export default function Work() {
     'https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1600&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1600267175161-cfaa711b4a8e?q=80&w=1600&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1564865887011-9f44e78921d1?q=80&w=1600&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1600&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?q=80&w=1600&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1542393545-10f5cde2c810?q=80&w=1600&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop'
   ]
 
   const gallery = images.length > 0 ? images : fallback
@@ -29,22 +34,7 @@ export default function Work() {
           </div>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {gallery.map((src, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="overflow-hidden rounded-2xl border border-white/20 bg-white/60 p-2 backdrop-blur dark:border-white/10 dark:bg-zinc-900/50"
-            >
-              <div className="aspect-[4/3] w-full overflow-hidden rounded-xl">
-                <img src={src} alt="Portfolio" className="h-full w-full object-cover transition duration-500 hover:scale-105" />
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <MotionGrid items={gallery} color={brand.primary} />
       </div>
     </section>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import { useBrand } from './BrandProvider'
 import { motion } from 'framer-motion'
 import { Sparkles, Rocket, Megaphone, Wrench } from 'lucide-react'
+import ChaosTextHeading from './ChaosTextHeading'
 
 const services = [
   { icon: Sparkles, title: 'Wix Design', desc: 'Clean, conversion-first designs tuned for your brand.' },
@@ -17,8 +18,8 @@ export default function Services() {
       <div className="mx-auto max-w-7xl px-4">
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl">Services</h2>
-            <p className="mt-2 text-zinc-600 dark:text-zinc-300">Everything you need to design, build, and grow.</p>
+            <ChaosTextHeading text={'Services|Everything you need'} gradient={`linear-gradient(90deg, ${brand.primary}, ${brand.secondary})`} />
+            <p className="mt-2 text-zinc-600 dark:text-zinc-300">Design, build, and grow with momentum.</p>
           </div>
           <div className="hidden h-px flex-1 items-center gap-2 md:flex">
             <span className="h-px w-12 rounded-full" style={{ background: brand.primary }} />

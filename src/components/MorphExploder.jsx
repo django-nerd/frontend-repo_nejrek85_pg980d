@@ -113,15 +113,15 @@ export default function MorphExploder() {
                   <motion.div
                     key={i}
                     className="pointer-events-none absolute grid h-28 w-28 place-items-center rounded-2xl"
-                    style={{ left: `calc(50% + ${t.x}px)`, top: `calc(50% + ${t.y}px)`, mixBlendMode: 'screen' }}
+                    style={{
+                      left: `calc(50% + ${t.x}px)`,
+                      top: `calc(50% + ${t.y}px)`,
+                      mixBlendMode: 'screen',
+                    }}
                     initial={{ scale: 0, rotate: -30, opacity: 0 }}
                     animate={{ scale: 1, rotate: 0, opacity: 1 }}
                     exit={{ scale: 0.8, opacity: 0 }}
                     transition={{ type: 'spring', stiffness: 120, damping: 14, delay: 0.2 + i * 0.05 }}
-                    style={{
-                      left: `calc(50% + ${t.x}px)`,
-                      top: `calc(50% + ${t.y}px)`,
-                    }}
                   >
                     <Glyph index={i} />
                   </motion.div>

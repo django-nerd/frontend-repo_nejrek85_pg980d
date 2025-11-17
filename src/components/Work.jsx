@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useBrand } from './BrandProvider'
 import MotionGrid from './MotionGrid'
+import ChaosTextHeading from './ChaosTextHeading'
 
 export default function Work() {
   const { brand } = useBrand()
@@ -25,7 +26,7 @@ export default function Work() {
       <div className="mx-auto max-w-7xl px-4">
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white sm:text-4xl">Selected Work</h2>
+            <ChaosTextHeading text={'Selected Work|Snapshots from launches'} gradient={`linear-gradient(90deg, ${brand.primary}, ${brand.secondary})`} />
             <p className="mt-2 text-zinc-600 dark:text-zinc-300">A few snapshots from recent launches.</p>
           </div>
           <div className="hidden h-px flex-1 items-center gap-2 md:flex">

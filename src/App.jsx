@@ -16,6 +16,7 @@ import Magnetic from './components/Magnetic'
 import ChaosEngine from './components/ChaosEngine'
 import HyperspaceTunnel from './components/HyperspaceTunnel'
 import ChaosScroller from './components/ChaosScroller'
+import SectionChaosPack from './components/SectionChaosPack'
 
 function Page() {
   return (
@@ -48,6 +49,9 @@ function Page() {
 
         <Ribbon height={160} opacity={0.35} />
         <Services />
+
+        {/* Surreal interaction pack */}
+        <SectionChaosPack />
 
         <Ribbon height={160} opacity={0.3} />
         <Work />
